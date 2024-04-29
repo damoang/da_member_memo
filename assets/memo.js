@@ -56,17 +56,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
             $.post(
                 damoang.memo.endpoints.memo_update,
-                $(modalElement.querySelector('form')).serialize()
+                $(modalElement.querySelector('form')).serialize(),
+                (result) => {
+                    window.location.reload();
+                },
+                'text'
             )
-                .then((result) => {
+                .fail((error) => {
                     Swal.fire({
                         position: "bottom-end",
-                        title: "저장했습니다.",
+                        icon: "error",
+                        title: "저장에 실패했습니다.",
                         showConfirmButton: false,
                         timer: 3500
                     });
                 });
-
             return false;
         });
     }
