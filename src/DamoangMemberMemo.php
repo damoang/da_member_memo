@@ -90,7 +90,6 @@ class DamoangMemberMemo
         $data['target_member_id'] = $targetMember['mb_id'];
 
         $tableName = self::tableName();
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $stmt = self::db()->prepare("INSERT INTO `{$tableName}`
             (member_uid, member_id, target_member_uid, target_member_id, memo, memo_detail, color)
             VALUES
