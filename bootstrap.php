@@ -6,6 +6,11 @@ if (!defined('_GNUBOARD_')) {
     exit;
 }
 
+// 로그인하지 않은 상태에서는 모든 동작이 필요하지 않음
+if (!$member['mb_id']) {
+    return;
+}
+
 define('DA_PLUGIN_MEMO_VERSION', 10000);
 define('DA_PLUGIN_MEMO_PATH', __DIR__);
 
