@@ -1,0 +1,50 @@
+<div class="modal fade" data-bs-backdrop="static" id="memberMemoEdit" tabindex="-1" aria-labelledby="memberModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="memberModalLabel">회원 메모</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body">
+                    <input type="hidden" name="target_member_id" value="" />
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-text bg-warning">
+                            <input class="form-check-input mt-0" type="radio" name="color" value="yellow" aria-label="Radio button for following text input">
+                        </div>
+                        <div class="input-group-text bg-success">
+                            <input class="form-check-input mt-0" type="radio" name="color" value="green" aria-label="Radio button for following text input">
+                        </div>
+                        <div class="input-group-text bg-purple">
+                            <input class="form-check-input mt-0" type="radio" name="color" value="purple" aria-label="Radio button for following text input">
+                        </div>
+                        <div class="input-group-text bg-danger">
+                            <input class="form-check-input mt-0" type="radio" name="color" value="red" aria-label="Radio button for following text input">
+                        </div>
+                        <div class="input-group-text bg-primary">
+                            <input class="form-check-input mt-0" type="radio" name="color" value="blue" aria-label="Radio button for following text input">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="da-modal__field-member-memo" class="col-form-label">메모</label>
+                        <input type="text" name="memo" class="form-control" id="da-modal__field-member-memo" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">추가 내용 (선택 사항)</label>
+                        <textarea name="memo_detail" class="form-control" id="message-text" style="height: 8em;"></textarea>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-outline-danger js-da-delete-memo" data-member-id="" data-bs-dismiss="modal">삭제</button> -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">저장</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

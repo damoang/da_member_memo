@@ -1,0 +1,25 @@
+.da-member-memo__memo {
+    max-width: 70px;
+    font-style: normal;
+}
+
+.da-memo-color--yellow {
+    color: #dc3545;
+    background-color: #ffe69c;
+}
+.da-memo-color--red {
+    color: #E91E63;
+    background-color: #FFCDD2;
+}
+.da-memo-color--blue {
+    color: #084298;
+    background-color: #cfe2ff;
+}
+.da-memo-color--purple {
+    color: #2c1a4d;
+    background-color: #c29ffa;
+}
+.da-memo-color--green {
+    color: #0a3622;
+    background-color: #a3cfbb;
+}
