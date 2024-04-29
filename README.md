@@ -6,7 +6,8 @@
 ## 설치
 1. `plugin` 폴더에 `da_member_memo` 폴더 복사
 2. `plugin/da_member_memo/_extend/member_memo.extend.php` 파일을 `extend` 폴더에 복사(또는 심볼릭 링크 권장)
-3. 관리페이지 `환경설정 -> DB업그레이드` 메뉴에 접근하여 DB 테이블 생성
+   ```ln -s plugin/da_member_memo/_extend/member_memo.extend.php extend/member_memo.extend.php```
+4. 관리페이지 `환경설정 -> DB업그레이드` 메뉴에 접근하여 DB 테이블 생성
   - `{prefix}member_memo` 테이블이 생성되어야 함
 
 ## 템플릿 파일
