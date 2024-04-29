@@ -2,18 +2,45 @@
 
 class DamoangMemberMemo
 {
+    /**
+     * 메모 수정 아이콘/버튼
+     * 
+     * @var int
+     */
     const PRINT_ICON = 1;
+    /**
+     * 메모 내용
+     * 
+     * @var int
+     */
     const PRINT_MEMO = 2;
 
+    /**
+     * 목록에서 사용하는 프리셋
+     * 
+     * @var int
+     */
     const PRINT_PRESET_LIST = 2;
+    /**
+     * 보기 페이지에서 사용하는 프리셋
+     * 
+     * @var int
+     */
     const PRINT_PRESET_VIEW = 3;
 
+    /**
+     * 회원 메모 테이블의 `prefix`를 포함한 이름을 반환
+     */
     public static function tableName(): string
     {
         return \G5_TABLE_PREFIX . 'member_memo';
     }
 
-    /** @return \mysqli */
+    /**
+     * 그누보드의 mysql connection
+     * 
+     * @return \mysqli
+     */
     public static function db()
     {
         return $GLOBALS['g5']['connect_db'];
@@ -29,7 +56,10 @@ class DamoangMemberMemo
     {
         global $member;
 
-        if (!empty($member['mb_id']) && $member['mb_id'] === $targetMemberId) {
+        if (
+            !empty($member['mb_id'])
+            && $member['mb_id'] === $targetMemberId
+        ) {
             return '';
         }
 
@@ -42,7 +72,13 @@ class DamoangMemberMemo
         return $addtionalHtml;
     }
 
-    public static function updateMemo($targetmemberId, $data = [])
+    /**
+     * 메모 내용을 insert, update
+     * 
+     * @param string $targetMemberId 대상 회원ID
+     * @param array $data
+     */
+    public static function updateMemo(string $targetmemberId, array $data = [])
     {
         global $member;
 
@@ -66,8 +102,6 @@ class DamoangMemberMemo
                 `updated_at` = CURRENT_TIMESTAMP()
         ");
 
-        var_dump($stmt);
-
         $stmt->bind_param(
             'isissss',
             $data['member_uid'],
@@ -80,22 +114,7 @@ class DamoangMemberMemo
         );
         $stmt->execute();
 
-        // sql_query("INSERT INTO `g5_member_memo`
-        //     SET
-        //         `member_uid` = {$data['member_uid']},
-        //         `member_id` = '{$data['member_id']}',
-        //         `target_member_uid` = {$data['target_member_uid']},
-        //         `target_member_id` = '{$data['target_member_id']}',
-        //         `memo` = '{$data['memo']}',
-        //         `memo_detail` = '{$data['memo_detail']}',
-        //         `color` = '{$data['color']}'
-        //     ON DUPLICATE KEY
-        //     UPDATE
-        //         `memo` = '{$data['memo']}',
-        //         `memo_detail` = '{$data['memo_detail']}',
-        //         `color` = '{$data['color']}',
-        //         `updated_at` = CURRENT_TIMESTAMP()
-        // ");
+        // 뭘 리턴해줄까?
     }
 
     /**
