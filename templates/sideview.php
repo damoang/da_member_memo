@@ -13,6 +13,7 @@
             'data-bs-content' => $memo['memo'],
             'data-bs-trigger' => 'hover',
             'data-bs-html' => 'true',
+            'data-bs-custom-class' => 'da-member-memo-popover',
         ];
 
         if (!empty($memo['memo_detail'])) {

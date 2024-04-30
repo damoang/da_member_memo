@@ -31,5 +31,12 @@
 .danger-popover {
   --bs-popover-border-color: var(--bs-red);
   --bs-popover-body-color: var(--bs-red);
+}
 
+/* 메모 popover 스타일 */
+.da-member-memo-popover {
+  --bs-popover-header-padding-x: 0.5rem;
+  --bs-popover-header-padding-y: 0.5rem;
+  --bs-popover-body-padding-x: 0.5rem;
+  --bs-popover-body-padding-y: 0.5rem;
 }
