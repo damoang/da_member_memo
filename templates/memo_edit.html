@@ -39,10 +39,25 @@
                         <textarea name="memo_detail" class="form-control" id="message-text" style="height: 8em;"></textarea>
                     </div>
                 </div>
+
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-outline-danger js-da-delete-memo" data-member-id="" data-bs-dismiss="modal">삭제</button> -->
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">저장</button>
+                    <div class="container d-flex flex-wrap">
+                        <div>
+                            <button type="button"
+                                class="btn btn-outline-danger js-memo-delete"
+                                data-bs-dismiss="modal"
+                                data-bs-toggle="popover"
+                                data-bs-trigger="hover focus"
+                                data-bs-custom-class="danger-popover"
+                                data-bs-content="메모를 삭제합니다"
+                                data-bs-placement="right"
+                            >삭제</button>
+                        </div>
+                        <div class="ms-auto">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">취소</button>
+                            <button type="submit" class="btn btn-primary px-4" data-bs-dismiss="modal">저장</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>

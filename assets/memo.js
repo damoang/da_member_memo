@@ -9,6 +9,7 @@ window.damoang.memo = function ($) {
         endpoints: {
             'memo': plugin_url + '/public/ajax.memo.php',
             'memo_update': plugin_url + '/public/ajax.memo_update.php',
+            'memo_delete': plugin_url + '/public/ajax.memo_delete.php',
         },
     };
 }(window.jQuery);
@@ -76,6 +77,32 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 });
             return false;
+        });
+
+        // 모달에서 메모 삭제
+        modalElement.querySelector('.js-memo-delete').addEventListener('click', e => {
+            const target_member_id = modalElement.querySelector('[name=target_member_id]').value ?? '';
+
+            $.ajax({
+                type: "POST",
+                url: damoang.memo.endpoints.memo_delete,
+                data: {
+                    _token: token,
+                    target_member_id,
+                }
+            })
+                .done(() => {
+                    window.location.reload();
+                })
+                .fail((jqXHR) => {
+                    Swal.fire({
+                        position: "bottom-end",
+                        icon: "error",
+                        title: jqXHR.responseJSON.message,
+                        showConfirmButton: false,
+                        timer: 3500
+                    });
+                });
         });
     }
 });

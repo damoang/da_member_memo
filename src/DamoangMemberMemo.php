@@ -196,19 +196,33 @@ class DamoangMemberMemo
         return $result;
     }
 
-    public static function deleteMemo($targetMemberId)
+    /**
+     * 회원메모 삭제
+     */
+    public static function deleteMemo(string $targetMemberId): array
     {
         global $member;
 
+        $tableName = self::tableName();
         $memberId = $member['mb_id'];
 
-        $tableName = self::tableName();
+        try {
+            $stmt = self::db()->prepare("DELETE FROM `{$tableName}`
+                WHERE
+                    `member_id` = ?
+                    AND `target_member_id` = ?
+            ");
+            $stmt->bind_param('ss', $memberId, $targetMemberId);
+            $stmt->execute();
+        } catch (Exception $e) {
+            return [
+                'error' => true,
+            ];
+        }
 
-        $result = sql_query("DELETE FROM `{$tableName}`
-            WHERE
-                `member_id` = '{$memberId}'
-                AND `target_member_id` = '{$targetMemberId}'
-        ;");
+        return [
+            'success' => true,
+        ];
     }
 
     public static function attr(string $name, ?string $value = ''): string

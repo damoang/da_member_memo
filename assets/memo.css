@@ -23,3 +23,9 @@
     color: #0a3622;
     background-color: #a3cfbb;
 }
+
+.danger-popover {
+  --bs-popover-border-color: var(--bs-red);
+  --bs-popover-body-color: var(--bs-red);
+
+}
