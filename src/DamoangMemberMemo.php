@@ -4,26 +4,26 @@ class DamoangMemberMemo
 {
     /**
      * 메모 수정 아이콘/버튼
-     * 
+     *
      * @var int
      */
     const PRINT_ICON = 1;
     /**
      * 메모 내용
-     * 
+     *
      * @var int
      */
     const PRINT_MEMO = 2;
 
     /**
      * 목록에서 사용하는 프리셋
-     * 
+     *
      * @var int
      */
     const PRINT_PRESET_LIST = 2;
     /**
      * 보기 페이지에서 사용하는 프리셋
-     * 
+     *
      * @var int
      */
     const PRINT_PRESET_VIEW = 3;
@@ -38,7 +38,7 @@ class DamoangMemberMemo
 
     /**
      * 그누보드의 mysql connection
-     * 
+     *
      * @return \mysqli
      */
     public static function db()
@@ -48,7 +48,7 @@ class DamoangMemberMemo
 
     /**
      * 회원의 메모를 출력
-     * 
+     *
      * @param string $targetMemberId 메모를 가져 올 회원의 ID
      * @param int $printType 편집 버튼, 메모 내용 등 출력할 UI 요소
      */
@@ -74,7 +74,7 @@ class DamoangMemberMemo
 
     /**
      * 메모 내용을 insert, update
-     * 
+     *
      * @param string $targetMemberId 대상 회원ID
      * @param array $data
      */
@@ -118,7 +118,7 @@ class DamoangMemberMemo
 
     /**
      * 대상 회원에게 메모한 메모 정보 반환
-     * 
+     *
      * @param array|string $targetMemberId
      * @return ?array{
      *      'id': int,
