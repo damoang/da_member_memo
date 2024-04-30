@@ -285,4 +285,10 @@ class DamoangMemberMemo
 
         return $_SESSION['da_csrf_token'] === $token;
     }
+
+    public static function asset(string $filepath): string
+    {
+        $filemtime = filemtime($filepath);
+        return str_replace(\G5_PATH, \G5_URL, $filepath) . '?' . $filemtime;
+    }
 }

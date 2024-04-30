@@ -51,10 +51,9 @@ if (!\DamoangMemberMemo::installed()) {
     return;
 }
 
-
 // assets
-add_stylesheet('<link rel="stylesheet" href="' . G5_PLUGIN_URL . '/da_member_memo/assets/memo.css" />');
-add_javascript('<script src="' . G5_PLUGIN_URL . '/da_member_memo/assets/memo.js" data-cfasync="false"></script>');
+add_stylesheet('<link rel="stylesheet" href="' . \DamoangMemberMemo::asset(DA_PLUGIN_MEMO_PATH . '/assets/memo.css') . '" />');
+add_javascript('<script src="' . \DamoangMemberMemo::asset(DA_PLUGIN_MEMO_PATH . '/assets/memo.js') . '"></script>');
 
 /**
  * 글 목록 배열에 `da_member_memo` 메모를 출력하는 HTML을 추가
