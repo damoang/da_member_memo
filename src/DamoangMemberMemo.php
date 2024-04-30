@@ -131,7 +131,7 @@ class DamoangMemberMemo
      */
     public static function getMemo($targetMemberId)
     {
-        global $member;
+        global $member, $is_admin;
 
         static $cache = [];
 
@@ -149,26 +149,33 @@ class DamoangMemberMemo
             return $cache[$cacheKey];
         }
 
-        $memo = sql_fetch("SELECT * FROM `g5_member_memo`
-            WHERE
-                `member_id` = '{$member['mb_id']}'
-                AND `target_member_id` = '{$targetMemberId}'
-        ");
+        $tableName = self::tableName();
+        try {
+            $memo = sql_fetch("SELECT * FROM `{$tableName}`
+                WHERE
+                    `member_id` = '{$member['mb_id']}'
+                    AND `target_member_id` = '{$targetMemberId}'
+            ");
+        } catch (Exception $e) {
+            return [
+                'error' => true,
+                'message' => ($is_admin === 'super') ? $e->getMessage() : ''
+            ];
+        }
 
-        $cache[$cacheKey] = self::arrangeMemo($targetMemberId, $memo ?? []);
+        $targetMember = get_member($targetMemberId);
 
-        return $cache[$cacheKey];
-    }
-
-    protected static function arrangeMemo($targetMemberId, $memo): array
-    {
         $memo['target_member_id'] = $targetMemberId;
+        $memo['target_member_nickname'] = $targetMember['mb_nick'];
         $memo['memo'] = $memo['memo'] ?? '';
         $memo['memo_detail'] = $memo['memo_detail'] ?? '';
         $memo['color'] = $memo['color'] ?? 'yellow';
 
-        return $memo;
+        $cache[$cacheKey] = $memo;
+
+        return $cache[$cacheKey];
     }
+
 
     public static function getMemoList()
     {
@@ -248,5 +255,20 @@ class DamoangMemberMemo
     public static function autolinkMemoDetail($text): string
     {
         return url_auto_link($text);
+    }
+
+    public static function csrfTokenCreate(): string
+    {
+        $_SESSION['da_csrf_token'] = _token();
+        return $_SESSION['da_csrf_token'];
+    }
+
+    public static function csrfTokenCheck(string $token): bool
+    {
+        if (!isset($_SESSION['da_csrf_token']) || empty($token)) {
+            return false;
+        }
+
+        return $_SESSION['da_csrf_token'] === $token;
     }
 }

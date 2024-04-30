@@ -3,7 +3,7 @@ if (!window.damoang) {
 }
 
 window.damoang.memo = function ($) {
-    const plugin_url = window.g5_url + '/plugin/da_member_memo/';
+    const plugin_url = window.g5_url + '/plugin/da_member_memo';
 
     return {
         endpoints: {
@@ -17,13 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
     /** @var HTMLElement 메모 수정 모달 */
     const modalElement = document.getElementById('memberMemoEdit')
     if (modalElement) {
+        /** @var string? CSRF 토큰 */
+        let token = null;
+
         modalElement.addEventListener('show.bs.modal', event => {
             const button = event.relatedTarget
             const memberId = button.getAttribute('data-bs-member-id')
-            const idAttr = modalElement.querySelector('[data-member-id]');
-            if (idAttr) {
-                idAttr.attributes['data-member-id'].value = memberId;
-            }
 
             /** @var HTMLElement 모달 제목 */
             const modalTitle = modalElement.querySelector('.modal-title')
@@ -40,13 +39,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             })
                 .done(function (data) {
-                    modalTitle.textContent = `회원 메모: ${data.target_member_id}`
+                    modalTitle.textContent = `회원 메모: ${data.target_member_nickname}`
+                    token = data._token;
 
                     // 가져온 데이터 채우기
+                    modalElement.querySelector('[name=_token]').value = token;
                     fMemberId.value = data.target_member_id;
                     modalElement.querySelector('[name=color][value=' + data.color + ']').checked = true;
                     fMemo.value = data.memo;
                     fMemoDetail.textContent = data.memo_detail;
+                })
+                .fail(() => {
+                    alert('메모 정보를 가져올 수 없음');
                 });
         });
 

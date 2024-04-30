@@ -6,17 +6,17 @@ if (!defined('_GNUBOARD_')) {
     exit;
 }
 
-// 로그인하지 않은 상태에서는 모든 동작이 필요하지 않음
-if (!$member['mb_id']) {
-    return;
-}
-
 define('DA_PLUGIN_MEMO_VERSION', 10000);
 define('DA_PLUGIN_MEMO_PATH', __DIR__);
 define('DA_PLUGIN_MEMO_DIR', basename(DA_PLUGIN_MEMO_PATH));
 define('DA_PLUGIN_MEMO_URL', G5_PLUGIN_URL . '/' . DA_PLUGIN_MEMO_DIR);
 
 include_once DA_PLUGIN_MEMO_PATH . '/src/DamoangMemberMemo.php';
+
+// 로그인하지 않은 상태에서는 모든 동작을 제한
+if (!$member['mb_id']) {
+    return;
+}
 
 // DB 마이그레이션
 add_replace('admin_dbupgrade', function ($is_check = false) {
@@ -116,7 +116,7 @@ add_replace('da_comment_list', function ($list = []) {
 
 /**
  * 회원 사이드뷰 메뉴
- * 
+ *
  * 메모, 차단하기 메뉴를 출력
  */
 add_replace('member_sideview_items', function ($sideview, $data = []) {
