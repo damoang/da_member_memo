@@ -125,12 +125,17 @@ add_replace('da_comment_list', function ($list = []) {
 add_replace('member_sideview_items', function ($sideview, $data = []) {
     global $member;
 
-    if (empty ($data['mb_id'] ?? '') || $data['mb_id'] === $member['mb_id']) {
+    if (empty ($data['mb_id'] ?? '')) {
         return $sideview;
     }
 
     // 메모
-    $sideview['menus']['member_memo'] = '<a href="#dummy-memo" data-bs-toggle="modal" data-bs-target="#memberMemoEdit" data-bs-member-id="' . $data['mb_id'] . '">메모</a>';
+    if ($data['mb_id'] === $member['mb_id']) {
+        // 본인 계정의 메뉴일 때는 '메모 목록'페이지로 링크
+        $sideview['menus']['member_memo'] = '<a href="' . DA_PLUGIN_MEMO_URL . '/public/memo_list.php" >메모 관리</a>';
+    } else {
+        $sideview['menus']['member_memo'] = '<a href="#dummy-memo" data-bs-toggle="modal" data-bs-target="#memberMemoEdit" data-bs-member-id="' . $data['mb_id'] . '">메모</a>';
+    }
 
     // 차단
     // 이건 나리야 빌더에서 제공하는 기능.
