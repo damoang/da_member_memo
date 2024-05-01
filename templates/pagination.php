@@ -30,10 +30,9 @@ class Pagination
                     EOD;
 					break;
 				case 'prevPage':
-                    $page = $btn->page - 1;
 					$output .= <<<EOD
                     <li class="page-prev page-item">
-                        <a class="page-link" href="/plugin/da_member_memo/public/memo_list.php?page={$page}" title="이전 페이지">
+                        <a class="page-link" href="/plugin/da_member_memo/public/memo_list.php?page={$btn->page}" title="이전 페이지">
                             <i class="bi bi-chevron-left"></i><span class="visually-hidden">이전 페이지</span>
                         </a>
                     </li>
@@ -58,10 +57,9 @@ class Pagination
                     EOD;
 					break;
 				case 'nextPage':
-                    $page = $btn->page + 1;
 					$output .= <<<EOD
                     <li class="page-first page-item">
-                        <a class="page-link" href="/plugin/da_member_memo/public/memo_list.php?page={$page}" title="다음 페이지">
+                        <a class="page-link" href="/plugin/da_member_memo/public/memo_list.php?page={$btn->page}" title="다음 페이지">
                             <i class="bi bi-chevron-right"></i><span class="visually-hidden">다음 페이지</span>
                         </a>
                     </li>
