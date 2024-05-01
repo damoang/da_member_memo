@@ -139,11 +139,13 @@ add_replace('member_sideview_items', function ($sideview, $data = []) {
 
     // 차단
     // 이건 나리야 빌더에서 제공하는 기능.
-    if (!in_array($data['mb_id'], explode(',', $member['as_chadan'] ?? ''))) {
-        $sideview['menus']['member_chadan'] = '<a href="#dummy-chadan" onclick="na_chadan(\'' . $data['mb_id'] . '\');">차단하기</a>';
-    } else {
-        // TODO: 차단해제 기능이 없어!
-        // $sideview['menus']['member_chadan'] = '<a href="#dummy-chadan" onclick="na_chadan(\'' . $data['mb_id'] . '\');">차단 해제</a>';
+    if ($data['mb_id'] !== $member['mb_id']) {
+        if (!in_array($data['mb_id'], explode(',', $member['as_chadan'] ?? ''))) {
+            $sideview['menus']['member_chadan'] = '<a href="#dummy-chadan" onclick="na_chadan(\'' . $data['mb_id'] . '\');">차단하기</a>';
+        } else {
+            // TODO: 차단해제 기능이 없어!
+            // $sideview['menus']['member_chadan'] = '<a href="#dummy-chadan" onclick="na_chadan(\'' . $data['mb_id'] . '\');">차단 해제</a>';
+        }
     }
 
     return $sideview;
