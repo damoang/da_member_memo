@@ -32,9 +32,9 @@ $list_cnt = \DamoangMemberMemo::getMemoCount();
 							<div class="col-2 text-center wr-name d-none d-md-block">
 								<?php
 								// 회원 정보 구하기
-								$member = get_member($memo['target_member_id']);
+								$target_member = get_member($memo['target_member_id']);
 
-								echo get_sideview($member['mb_id'], $member['mb_nick']);
+								echo get_sideview($target_member['mb_id'], $target_member['mb_nick']);
 								?>
 							</div>
 							<div class="flex-grow-1">
