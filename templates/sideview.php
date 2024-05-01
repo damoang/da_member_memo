@@ -7,7 +7,7 @@
     <?php } // end icon ?>
 
     <?php
-    if (($printType & \DamoangMemberMemo::PRINT_MEMO) && !empty($memo['memo'])) {
+    if (($printType & \DamoangMemberMemo::PRINT_MEMO) && $memo['memo'] !== '') {
         $attrsPopover = [
             'data-bs-toggle' => 'popover',
             'data-bs-content' => $memo['memo'],
@@ -16,7 +16,7 @@
             'data-bs-custom-class' => 'da-member-memo-popover',
         ];
 
-        if (!empty($memo['memo_detail'])) {
+        if ($memo['memo_detail'] !== '') {
             $attrsPopover['data-bs-title'] = $memo['memo'];
             $attrsPopover['data-bs-content'] = nl2br(url_auto_link($memo['memo_detail'] ?? null));
             $attrsPopover['data-bs-trigger'] = 'focus hover';

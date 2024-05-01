@@ -227,7 +227,7 @@ class DamoangMemberMemo
 
     public static function attr(string $name, ?string $value = ''): string
     {
-        return (!(string) $value) ? '' : $name . '="' . htmlspecialchars($value ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '"';
+        return $name . '="' . htmlspecialchars($value ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '"';
     }
 
     public static function attrs(array $attrs = []): string
