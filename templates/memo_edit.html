@@ -18,22 +18,21 @@
                 </div>
 
                 <div class="modal-body">
-                    <div class="input-group mb-3">
-                        <div class="input-group-text da-memo-color--yellow">
-                            <input class="form-check-input mt-0" type="radio" name="color" value="yellow" checked />
-                        </div>
-                        <div class="input-group-text da-memo-color--green">
-                            <input class="form-check-input mt-0" type="radio" name="color" value="green" />
-                        </div>
-                        <div class="input-group-text da-memo-color--purple">
-                            <input class="form-check-input mt-0" type="radio" name="color" value="purple" />
-                        </div>
-                        <div class="input-group-text da-memo-color--red">
-                            <input class="form-check-input mt-0" type="radio" name="color" value="red" />
-                        </div>
-                        <div class="input-group-text da-memo-color--blue">
-                            <input class="form-check-input mt-0" type="radio" name="color" value="blue" />
-                        </div>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="color" value="yellow" id="color-yellow" autocomplete="off" checked />
+                        <label class="btn btn-outline-secondary da-btn-color--yellow" for="color-yellow"><span class="visually-hidden">yellow</span></label>
+
+                        <input type="radio" class="btn-check" name="color" value="green" id="color-green" autocomplete="off" checked />
+                        <label class="btn btn-outline-secondary da-btn-color--green" for="color-green"><span class="visually-hidden">green</span></label>
+
+                        <input type="radio" class="btn-check" name="color" value="purple" id="color-purple" autocomplete="off" checked />
+                        <label class="btn btn-outline-secondary da-btn-color--purple" for="color-purple"><span class="visually-hidden">purple</span></label>
+
+                        <input type="radio" class="btn-check" name="color" value="red" id="color-red" autocomplete="off" checked />
+                        <label class="btn btn-outline-secondary da-btn-color--red" for="color-red"><span class="visually-hidden">red</span></label>
+
+                        <input type="radio" class="btn-check" name="color" value="blue" id="color-blue" autocomplete="off" checked />
+                        <label class="btn btn-outline-secondary da-btn-color--blue" for="color-blue"><span class="visually-hidden">blue</span></label>
                     </div>
 
                     <div class="mb-3">
@@ -59,7 +58,7 @@
                         <div>
                             <button
                                 type="button"
-                                class="btn btn-outline-danger js-memo-delete"
+                                class="btn btn-sm btn-outline-danger js-memo-delete"
                                 data-bs-dismiss="modal"
                                 data-bs-toggle="popover"
                                 data-bs-trigger="hover focus"
@@ -71,8 +70,12 @@
                             </button>
                         </div>
                         <div class="ms-auto">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">취소</button>
-                            <button type="submit" class="btn btn-primary px-4" data-bs-dismiss="modal">저장</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">
+                                취소
+                            </button>
+                            <button type="submit" class="btn btn-sm btn-primary px-5" data-bs-dismiss="modal">
+                                저장
+                            </button>
                         </div>
                     </div>
                 </div>
