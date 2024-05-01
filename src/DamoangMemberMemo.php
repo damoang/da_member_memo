@@ -289,6 +289,10 @@ class DamoangMemberMemo
     public static function asset(string $filepath): string
     {
         $filemtime = filemtime($filepath);
-        return str_replace(\G5_PATH, \G5_URL, $filepath) . '?' . $filemtime;
+
+        // Windows 환경에서 path 치환 안되는 문제 수정
+        $url = str_replace('\\', '/', $filepath);
+        $url = str_replace(\G5_PATH, \G5_URL, $url) . '?' . $filemtime;
+        return $url;
     }
 }
