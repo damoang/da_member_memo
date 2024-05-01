@@ -62,7 +62,7 @@ class Pagination
 					$output .= <<<EOD
                     <li class="page-first page-item">
                         <a class="page-link" href="/plugin/da_member_memo/public/memo_list.php?page={$page}" title="다음 페이지">
-                            <i class="bi bi-chevron-double-left"></i><span class="visually-hidden">다음 페이지</span>
+                            <i class="bi bi-chevron-right"></i><span class="visually-hidden">다음 페이지</span>
                         </a>
                     </li>
                     EOD;
@@ -70,8 +70,8 @@ class Pagination
 				case 'endPage':
 					$output .= <<<EOD
                     <li class="page-first page-item">
-                        <a class="page-link" href="/plugin/da_member_memo/public/memo_list.php?page={$pagination->total_page}" title="마지막 페이지">
-                            <i class="bi bi-chevron-double-left"></i><span class="visually-hidden">마지막 페이지</span>
+                        <a class="page-link" href="/plugin/da_member_memo/public/memo_list.php?page={$btn->page}" title="마지막 페이지">
+                            <i class="bi bi-chevron-double-right"></i><span class="visually-hidden">마지막 페이지</span>
                         </a>
                     </li>
                     EOD;
@@ -88,7 +88,7 @@ class Pagination
         $page = $this->page;
         $count = $this->count;
 
-        $total_page = ceil($count / $list_count);
+        $total_page = ($count) ? ceil($count / $list_count) : 1;
 
         if($page < 1 || ($total_page && $page > $total_page)) {
             return array();

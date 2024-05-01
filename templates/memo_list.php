@@ -50,7 +50,7 @@ $list_cnt = \DamoangMemberMemo::getMemoCount();
 				<?php endwhile; ?>
 				<?php if ($list_cnt === 0) { ?>
 					<li class="list-group-item text-center py-5">
-						게시물이 없습니다.
+						메모가 없습니다.
 					</li>
 				<?php } ?>
 			</ul>
