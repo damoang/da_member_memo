@@ -1,14 +1,14 @@
 :root {
-  --da-bg-yellow: #ffe69c;
-  --da-color-yellow: #e91e63;
-  --da-bg-red: #ffcdd2;
-  --da-color-red: #e91e63;
-  --da-bg-purple: #c29ffa;
-  --da-color-purple: #2c1a4d;
-  --da-bg-blue: #cfe2ff;
-  --da-color-blue: #084298;
-  --da-bg-green: #a3cfbb;
-  --da-color-green: #0a3622;
+  --da-memo-bg-yellow: #ffe69c;
+  --da-memo-color-yellow: #e91e63;
+  --da-memo-bg-red: #ffcdd2;
+  --da-memo-color-red: #e91e63;
+  --da-memo-bg-purple: #c29ffa;
+  --da-memo-color-purple: #2c1a4d;
+  --da-memo-bg-blue: #cfe2ff;
+  --da-memo-color-blue: #084298;
+  --da-memo-bg-green: #a3cfbb;
+  --da-memo-color-green: #0a3622;
 }
 
 .da-member-memo__memo {
@@ -20,6 +20,7 @@
   font-family: bootstrap-icons !important;
   content: '\f28a';
   opacity: 0.3;
+  vertical-align: middle;
 }
 
 .btn-check:checked+[class*="da-btn-color--"]::before {
@@ -28,44 +29,44 @@
 }
 
 .da-btn-color--yellow {
-  --bs-btn-bg: var(--da-bg-yellow);
-  --bs-btn-active-bg: var(--da-bg-yellow);
-  --bs-btn-color: var(--da-color-yellow);
-  --bs-btn-active-color: var(--da-color-yellow);
+  --bs-btn-bg: var(--da-memo-bg-yellow);
+  --bs-btn-active-bg: var(--da-memo-bg-yellow);
+  --bs-btn-color: var(--da-memo-color-yellow);
+  --bs-btn-active-color: var(--da-memo-color-yellow);
 }
 
 .da-btn-color--red {
-  --bs-btn-bg: var(--da-bg-red);
-  --bs-btn-active-bg: var(--da-bg-red);
-  --bs-btn-color: var(--da-color-red);
-  --bs-btn-active-color: var(--da-color-red);
+  --bs-btn-bg: var(--da-memo-bg-red);
+  --bs-btn-active-bg: var(--da-memo-bg-red);
+  --bs-btn-color: var(--da-memo-color-red);
+  --bs-btn-active-color: var(--da-memo-color-red);
 }
 
 .da-btn-color--purple {
-  --bs-btn-bg: var(--da-bg-purple);
-  --bs-btn-active-bg: var(--da-bg-purple);
-  --bs-btn-color: var(--da-color-purple);
-  --bs-btn-active-color: var(--da-color-purple);
+  --bs-btn-bg: var(--da-memo-bg-purple);
+  --bs-btn-active-bg: var(--da-memo-bg-purple);
+  --bs-btn-color: var(--da-memo-color-purple);
+  --bs-btn-active-color: var(--da-memo-color-purple);
 }
 
 .da-btn-color--blue {
-  --bs-btn-bg: var(--da-bg-blue);
-  --bs-btn-active-bg: var(--da-bg-blue);
-  --bs-btn-color: var(--da-color-blue);
-  --bs-btn-active-color: var(--da-color-blue);
+  --bs-btn-bg: var(--da-memo-bg-blue);
+  --bs-btn-active-bg: var(--da-memo-bg-blue);
+  --bs-btn-color: var(--da-memo-color-blue);
+  --bs-btn-active-color: var(--da-memo-color-blue);
 }
 
 .da-btn-color--green {
-  --bs-btn-bg: var(--da-bg-green);
-  --bs-btn-active-bg: var(--da-bg-green);
-  --bs-btn-color: var(--da-color-green);
-  --bs-btn-active-color: var(--da-color-green);
+  --bs-btn-bg: var(--da-memo-bg-green);
+  --bs-btn-active-bg: var(--da-memo-bg-green);
+  --bs-btn-color: var(--da-memo-color-green);
+  --bs-btn-active-color: var(--da-memo-color-green);
 }
 
 
 .da-memo-color--yellow {
-  color: var(--da-color-yellow);
-  background-color: var(--da-bg-yellow);
+  color: var(--da-memo-color-yellow);
+  background-color: var(--da-memo-bg-yellow);
 }
 
 .da-memo-color--red {
