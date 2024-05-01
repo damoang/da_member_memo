@@ -177,7 +177,7 @@ class DamoangMemberMemo
     }
 
 
-    public static function getMemoList()
+    public static function getMemoList($limitOffset, $limitCnt)
     {
         global $member;
 
@@ -191,9 +191,29 @@ class DamoangMemberMemo
         $result = sql_query("SELECT * FROM `{$tableName}`
             WHERE
                 `member_id` = '{$memberId}'
+            LIMIT {$limitOffset}, {$limitCnt}
         ");
 
         return $result;
+    }
+
+    public static function getMemoCount()
+    {
+        global $member;
+
+        if (empty($member['mb_id'])) {
+            return 0;
+        }
+
+        $tableName = self::tableName();
+        $memberId = $member['mb_id'];
+
+        $result = sql_fetch("SELECT COUNT(*) AS count FROM `{$tableName}`
+            WHERE
+                `member_id` = '{$memberId}'
+        ");
+
+        return (int)$result['count'];
     }
 
     /**
