@@ -1,3 +1,6 @@
+<?php
+declare(strict_types=1);
+?>
 <span class="da-member-memo">
     <?php if ($printType & \DamoangMemberMemo::PRINT_ICON) { ?>
         <button class="btn btn-sm btn-link" style="--bs-btn-padding-x: .25rem;" data-bs-toggle="modal" data-bs-target="#memberMemoEdit" data-bs-member-id="<?= $targetMemberId ?>">

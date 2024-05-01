@@ -1,5 +1,10 @@
 <?php
-if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
+
+declare(strict_types=1);
+
+if (!defined('_GNUBOARD_')) {
+    exit;
+}
 
 include_once DA_PLUGIN_MEMO_PATH . '/src/DamoangMemberMemoPagination.php';
 
@@ -7,9 +12,12 @@ $list_cnt = \DamoangMemberMemo::getMemoCount();
 ?>
 
 <style>
-#bo_list .wr-no, #bo_list .wr-date, #bo_list .wr-num, #bo_list .wr-name {
-    font-size: 13px;
-}
+    #bo_list .wr-no,
+    #bo_list .wr-date,
+    #bo_list .wr-num,
+    #bo_list .wr-name {
+        font-size: 13px;
+    }
 </style>
 <div id="bo_list_wrap">
     <form name="fboardlist" id="fboardlist" method="post">
@@ -58,15 +66,14 @@ $list_cnt = \DamoangMemberMemo::getMemoCount();
     </form>
 
     <?php
-        $pg = new DamoangMemberMemoPagination();
+    $pg = new DamoangMemberMemoPagination();
+    $pg->list_count = $limitCnt;
+    $pg->page = (int) $page + 1;
+    $pg->count = $list_cnt;
+    $pg->one_section = G5_IS_MOBILE ? (int) $config['cf_mobile_pages'] : (int) $config['cf_write_pages'];
 
-        $pg->list_count = $limitCnt;
-        $pg->page = (int)$page + 1;
-        $pg->count = $list_cnt;
-        $pg->one_section = G5_IS_MOBILE ? (int)$config['cf_mobile_pages'] : (int)$config['cf_write_pages'];
-
-        $pagination = $pg->getPagination();
-        $page_buttons = $pg->getPaginationButton($pagination);
+    $pagination = $pg->getPagination();
+    $page_buttons = $pg->getPaginationButton($pagination);
     ?>
     <ul class="pagination pagination-sm justify-content-center">
         <?= $page_buttons ?>

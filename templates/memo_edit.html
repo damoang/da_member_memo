@@ -1,4 +1,11 @@
-<div class="modal fade" data-bs-backdrop="static" id="memberMemoEdit" tabindex="-1" aria-labelledby="memberModalLabel" aria-hidden="true">
+<div
+    id="memberMemoEdit"
+    class="modal fade"
+    data-bs-backdrop="static"
+    tabindex="-1"
+    aria-labelledby="memberModalLabel"
+    aria-hidden="true"
+>
     <div class="modal-dialog">
         <form method="post">
             <input type="hidden" name="_token" value="" />
@@ -13,37 +20,45 @@
                 <div class="modal-body">
                     <div class="input-group mb-3">
                         <div class="input-group-text da-memo-color--yellow">
-                            <input class="form-check-input mt-0" type="radio" name="color" value="yellow" checked>
+                            <input class="form-check-input mt-0" type="radio" name="color" value="yellow" checked />
                         </div>
                         <div class="input-group-text da-memo-color--green">
-                            <input class="form-check-input mt-0" type="radio" name="color" value="green">
+                            <input class="form-check-input mt-0" type="radio" name="color" value="green" />
                         </div>
                         <div class="input-group-text da-memo-color--purple">
-                            <input class="form-check-input mt-0" type="radio" name="color" value="purple">
+                            <input class="form-check-input mt-0" type="radio" name="color" value="purple" />
                         </div>
                         <div class="input-group-text da-memo-color--red">
-                            <input class="form-check-input mt-0" type="radio" name="color" value="red">
+                            <input class="form-check-input mt-0" type="radio" name="color" value="red" />
                         </div>
                         <div class="input-group-text da-memo-color--blue">
-                            <input class="form-check-input mt-0" type="radio" name="color" value="blue">
+                            <input class="form-check-input mt-0" type="radio" name="color" value="blue" />
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="da-modal__field-member-memo" class="col-form-label">메모</label>
-                        <input type="text" name="memo" class="form-control" id="da-modal__field-member-memo" required>
+                        <input type="text" name="memo" class="form-control" id="da-modal__field-member-memo" required />
                     </div>
 
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">추가 내용 <span class="fw-lighter">(선택 사항)</span></label>
-                        <textarea name="memo_detail" class="form-control" id="message-text" style="height: 8em;"></textarea>
+                        <label for="message-text" class="col-form-label">
+                            추가 내용 <span class="fw-lighter">(선택 사항)</span>
+                        </label>
+                        <textarea
+                            name="memo_detail"
+                            class="form-control"
+                            id="message-text"
+                            style="height: 8em"
+                        ></textarea>
                     </div>
                 </div>
 
                 <div class="modal-footer">
                     <div class="container d-flex flex-wrap">
                         <div>
-                            <button type="button"
+                            <button
+                                type="button"
                                 class="btn btn-outline-danger js-memo-delete"
                                 data-bs-dismiss="modal"
                                 data-bs-toggle="popover"
@@ -51,7 +66,9 @@
                                 data-bs-custom-class="danger-popover"
                                 data-bs-content="메모를 삭제합니다"
                                 data-bs-placement="right"
-                            >삭제</button>
+                            >
+                                삭제
+                            </button>
                         </div>
                         <div class="ms-auto">
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">취소</button>

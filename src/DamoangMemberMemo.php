@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 class DamoangMemberMemo
 {
     /**
@@ -213,7 +215,7 @@ class DamoangMemberMemo
                 `member_id` = '{$memberId}'
         ");
 
-        return (int)$result['count'];
+        return (int) $result['count'];
     }
 
     /**
