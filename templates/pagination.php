@@ -107,7 +107,7 @@ class Pagination
 
         $prev_page = (($current_section - 1) * $one_section);
         $next_page = (($current_section + 1) * $one_section) - ($one_section - 1);
-        
+
         $output = array();
         if ($page != 1)
         {

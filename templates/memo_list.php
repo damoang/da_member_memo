@@ -12,63 +12,63 @@ $list_cnt = \DamoangMemberMemo::getMemoCount();
 }
 </style>
 <div id="bo_list_wrap">
-	<form name="fboardlist" id="fboardlist" method="post">
-		<section id="bo_list" class="line-top mb-3">
-			<ul class="list-group list-group-flush border-bottom">
-				<li class="list-group-item d-none d-md-block hd-wrap">
-					<div class="d-flex flex-md-row align-items-md-center gap-1 fw-bold">
-						<div class="col-2 text-center">
-							아이디
-						</div>
-						<div class="flex-grow-1">
-							메모 내용
-						</div>
-					</div>
-				</li>
-				<?php while ($memo = sql_fetch_array($list)): ?>
-					<li class="list-group-item">
+    <form name="fboardlist" id="fboardlist" method="post">
+        <section id="bo_list" class="line-top mb-3">
+            <ul class="list-group list-group-flush border-bottom">
+                <li class="list-group-item d-none d-md-block hd-wrap">
+                    <div class="d-flex flex-md-row align-items-md-center gap-1 fw-bold">
+                        <div class="col-2 text-center">
+                            아이디
+                        </div>
+                        <div class="flex-grow-1">
+                            메모 내용
+                        </div>
+                    </div>
+                </li>
+                <?php while ($memo = sql_fetch_array($list)): ?>
+                    <li class="list-group-item">
 
-						<div class="d-flex align-items-center gap-1">
-							<div class="col-2 text-center wr-name d-none d-md-block">
-								<?php
-								// 회원 정보 구하기
-								$target_member = get_member($memo['target_member_id']);
+                        <div class="d-flex align-items-center gap-1">
+                            <div class="col-2 text-center wr-name d-none d-md-block">
+                                <?php
+                                // 회원 정보 구하기
+                                $target_member = get_member($memo['target_member_id']);
 
-								echo get_sideview($target_member['mb_id'], $target_member['mb_nick']);
-								?>
-							</div>
-							<div class="flex-grow-1">
-								<div class="d-flex flex-column flex-md-row align-items-md-center gap-2">
-									<div class="flex-fill">
-										<span data-bs-toggle="popover" data-bs-content="<?php echo na_htmlspecialchars($memo['memo_detail'], true) ?>" data-bs-trigger="focus hover" data-bs-html="true"><?= $memo['memo'] ?></span>
-									</div>
-								</div>
-							</div>
-						</div>
+                                echo get_sideview($target_member['mb_id'], $target_member['mb_nick']);
+                                ?>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex flex-column flex-md-row align-items-md-center gap-2">
+                                    <div class="flex-fill">
+                                        <span data-bs-toggle="popover" data-bs-content="<?php echo na_htmlspecialchars($memo['memo_detail'], true) ?>" data-bs-trigger="focus hover" data-bs-html="true"><?= $memo['memo'] ?></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-					</li>
-				<?php endwhile; ?>
-				<?php if ($list_cnt === 0) { ?>
-					<li class="list-group-item text-center py-5">
-						메모가 없습니다.
-					</li>
-				<?php } ?>
-			</ul>
-		</section>
-	</form>
+                    </li>
+                <?php endwhile; ?>
+                <?php if ($list_cnt === 0) { ?>
+                    <li class="list-group-item text-center py-5">
+                        메모가 없습니다.
+                    </li>
+                <?php } ?>
+            </ul>
+        </section>
+    </form>
 
-	<?php
-		$pg = new Pagination();
+    <?php
+        $pg = new Pagination();
 
         $pg->list_count = $limitCnt;
         $pg->page = (int)$page + 1;
         $pg->count = $list_cnt;
-		$pg->one_section = G5_IS_MOBILE ? (int)$config['cf_mobile_pages'] : (int)$config['cf_write_pages'];
+        $pg->one_section = G5_IS_MOBILE ? (int)$config['cf_mobile_pages'] : (int)$config['cf_write_pages'];
 
         $pagination = $pg->getPagination();
         $page_buttons = $pg->getPaginationButton($pagination);
-	?>
-	<ul class="pagination pagination-sm justify-content-center">
-		<?= $page_buttons ?>
-	</ul>
+    ?>
+    <ul class="pagination pagination-sm justify-content-center">
+        <?= $page_buttons ?>
+    </ul>
 </div>
