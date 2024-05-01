@@ -1,7 +1,7 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
-include_once DA_PLUGIN_MEMO_PATH . '/templates/pagination.php';
+include_once DA_PLUGIN_MEMO_PATH . '/src/DamoangMemberMemoPagination.php';
 
 $list_cnt = \DamoangMemberMemo::getMemoCount();
 ?>
@@ -58,7 +58,7 @@ $list_cnt = \DamoangMemberMemo::getMemoCount();
     </form>
 
     <?php
-        $pg = new Pagination();
+        $pg = new DamoangMemberMemoPagination();
 
         $pg->list_count = $limitCnt;
         $pg->page = (int)$page + 1;

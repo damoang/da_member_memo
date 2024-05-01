@@ -1,6 +1,8 @@
 <?php
 
-class Pagination
+declare(strict_types=1);
+
+class DamoangMemberMemoPagination
 {
     public $list_count = NULL;
 
