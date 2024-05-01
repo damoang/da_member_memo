@@ -25,8 +25,12 @@ add_replace('admin_dbupgrade', function ($is_check = false) {
     // 테이블 생성
     sql_query("CREATE TABLE IF NOT EXISTS `{$tableName}` (
         `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+        -- member_uid: 메모를 한 회원의 `mb_no`
+        -- 사용되지 않으나 마이그레이션을 대비하여 데이터 축적 중
         `member_uid` int(11) DEFAULT NULL,
         `member_id` varchar(20) CHARACTER SET ascii NOT NULL,
+        -- target_member_uid: 메모 대상 회원의 `mb_no`
+        -- 사용되지 않으나 마이그레이션을 대비하여 데이터 축적 중
         `target_member_uid` int(11) DEFAULT NULL,
         `target_member_id` varchar(20) CHARACTER SET ascii NOT NULL,
         `color` varchar(20) CHARACTER SET ascii DEFAULT NULL,
