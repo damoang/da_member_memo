@@ -47,7 +47,7 @@ $list_cnt = \DamoangMemberMemo::getMemoCount();
                             </div>
                             <div class="flex-grow-1">
                                 <div class="d-flex gap-2">
-                                    <div class="flex-fill">
+                                    <div class="flex-fill align-self-center">
                                         <span data-bs-toggle="popover" data-bs-content="<?php echo nl2br(na_htmlspecialchars($memo['memo_detail'], true)) ?>" data-bs-trigger="focus hover" data-bs-html="true"><?= $memo['memo'] ?></span>
                                     </div>
                                     <div>
