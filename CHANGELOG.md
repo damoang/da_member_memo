@@ -1,5 +1,24 @@
 # Changelog
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.2.0](https://github.com/kkigomi/da_member_memo/compare/v1.1.0...v1.2.0) (2024-05-02)
+
+
+### Features
+
+* 메모 색상 선택기 UI 개선 ([39baa2a](https://github.com/kkigomi/da_member_memo/commit/39baa2a61b970ef2e5994b2edd0814788d2312c1))
+* 본인 사이드뷰 메뉴에 '메모 관리' 메뉴 추가 ([e472ea8](https://github.com/kkigomi/da_member_memo/commit/e472ea85e1004a70805054722804468222f06c14))
+* 메모 목록 UI 적용 ([0b6a3fe](https://github.com/kkigomi/da_member_memo/commit/0b6a3fee0aef591639feea69e032e4716336a003)) [@rzglitch](https://github.com/rzglitch)
+* 메모 리스트에서 수정 삭제 기능 추가 [#11](https://github.com/kkigomi/da_member_memo/pull/11), closes [#10](https://github.com/kkigomi/da_member_memo/pull/10)
+
+
+### Bug Fixes
+
+* 메모 내용에 `0`을 입력했을 때 표시되지 않는 문제 수정 ([5002d64](https://github.com/kkigomi/da_member_memo/commit/5002d64538fed991bec0e1b5d441988290870fc0)), closes [#6](https://github.com/kkigomi/da_member_memo/issues/6)
+* 차단하기 사이드뷰 메뉴가 잘못 출력되는 문제 고침 ([a063323](https://github.com/kkigomi/da_member_memo/commit/a06332304ae4374a17bbe220366eace396cd730d))
+* Windows 환경에서 Assets path 치환 안되는 문제 수정 ([f1b3729](https://github.com/kkigomi/da_member_memo/commit/f1b372959d891b495184612f4125145610de23e7)) [@rzglitch](https://github.com/rzglitch)
+
 ## [1.1.0](https://github.com/kkigomi/da_member_memo/compare/v1.0.0...v1.1.0) (2024-04-30)
 
 ### Features
