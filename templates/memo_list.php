@@ -52,7 +52,10 @@ $list_cnt = \DamoangMemberMemo::getMemoCount();
                                     </div>
                                     <div>
                                         <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#memberMemoEdit" data-bs-member-id="<?=$memo['target_member_id']?>">
-                                            관리
+                                            수정
+                                        </button>
+                                        <button type="button" class="btn btn-sm btn-danger js-memo-delete-from-list" value="<?=$memo['target_member_id']?>">
+                                            삭제
                                         </button>
                                     </div>
                                 </div>

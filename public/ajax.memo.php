@@ -14,8 +14,13 @@ if (!$member['mb_id']) {
     exit;
 }
 
-$memberId = $_GET['member_id'];
-$memo = \DamoangMemberMemo::getMemo($memberId);
+if($_GET['token_only']) {
+    $memo = [];
+} else {
+    $memberId = $_GET['member_id'];
+    $memo = \DamoangMemberMemo::getMemo($memberId);
+}
+
 $memo['_token'] = \DamoangMemberMemo::csrfTokenCreate();
 
 header('Content-Type: application/json');

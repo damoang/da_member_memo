@@ -105,4 +105,37 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
   }
+
+  document.querySelectorAll('.js-memo-delete-from-list').forEach((item) => {
+    item.addEventListener('click', e => {
+      const target_member_id = e.target.value;
+
+      $.ajax(damoang.memo.endpoints.memo, {
+        data: {
+          'token_only': true,
+        }
+      })
+        .done(function (data) {
+
+          $.ajax({
+            type: "POST",
+            url: damoang.memo.endpoints.memo_delete,
+            data: {
+              _token: data._token,
+              target_member_id,
+            }
+          })
+            .done(() => {
+              window.location.reload();
+            })
+            .fail((jqXHR) => {
+              console.log(jqXHR);
+              alert('메모 삭제 오류입니다.');
+            });
+        })
+        .fail(() => {
+          alert('토큰 오류 입니다.');
+        });
+    });
+  });
 });
