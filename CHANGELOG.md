@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/kkigomi/da_member_memo/compare/v1.2.0...v1.2.1) (2024-05-05)
+
+
+### Features
+
+* 레벨1 회원은 메모 기능을 사용하지 못하도록 제한 ([025a8ce](https://github.com/kkigomi/da_member_memo/commit/025a8cee40aa35ae24f0b6c13e19fc7538d81983))
+* 메모 색상 조정 ([3afa6c3](https://github.com/kkigomi/da_member_memo/commit/3afa6c3ec0d440fc0e0a46698e46d80688cca8ef))
+* 메모 목록 모바일 대응 ([1439f00](https://github.com/kkigomi/da_member_memo/commit/1439f008156958f80de6a42bc49cd5cd673e7829)) [@rzglitch](https://github.com/rzglitch)
+
 ## [1.2.0](https://github.com/kkigomi/da_member_memo/compare/v1.1.0...v1.2.0) (2024-05-02)
 
 
@@ -28,4 +37,3 @@ All notable changes to this project will be documented in this file. See [standa
 * 메모를 표시하는 popover에 커스텀 클래스 지정 ([9a3e3a9](https://github.com/kkigomi/da_member_memo/commit/9a3e3a957483df079a62c3288f553fe173edf074))
 * asset 파일의 브라우저 캐시를 갱신하도록 개선 ([805eda9](https://github.com/kkigomi/da_member_memo/commit/805eda946739efdb334e5fbab110fec951dc903c))
 * **ui:** 메모 색상 선택 UI 수정 ([3180708](https://github.com/kkigomi/da_member_memo/commit/3180708312c6825b3d200da543c5b53a92b19ab3)), closes [#4](https://github.com/kkigomi/da_member_memo/issues/4)
-
