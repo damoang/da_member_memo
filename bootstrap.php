@@ -13,8 +13,12 @@ define('DA_PLUGIN_MEMO_URL', G5_PLUGIN_URL . '/' . DA_PLUGIN_MEMO_DIR);
 
 include_once DA_PLUGIN_MEMO_PATH . '/src/DamoangMemberMemo.php';
 
-// 로그인하지 않은 상태에서는 모든 동작을 제한
-if (!$member['mb_id']) {
+if (
+    /* 비로그인 시 모든 동작 제한 */
+    !$member['mb_id']
+    /* 레벨1은 사용 제한 */
+    || intval($member['mb_level']) < 2
+) {
     return;
 }
 
