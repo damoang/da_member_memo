@@ -23,9 +23,9 @@ $list_cnt = \DamoangMemberMemo::getMemoCount();
     <form name="fboardlist" id="fboardlist" method="post">
         <section id="bo_list" class="line-top mb-3">
             <ul class="list-group list-group-flush border-bottom">
-                <li class="list-group-item hd-wrap">
+                <li class="list-group-item d-none d-md-block hd-wrap">
                     <div class="d-flex flex-md-row align-items-md-center gap-1 fw-bold">
-                        <div class="col-3 col-md-2 text-center">
+                        <div class="col-md-2 text-center">
                             아이디
                         </div>
                         <div class="flex-grow-1">
@@ -37,17 +37,17 @@ $list_cnt = \DamoangMemberMemo::getMemoCount();
                     <li class="list-group-item">
 
                         <div class="d-flex align-items-center gap-1">
-                            <div class="col-3 col-md-2 text-center wr-name">
-                                <?php
-                                // 회원 정보 구하기
-                                $target_member = get_member($memo['target_member_id']);
-
-                                echo get_sideview($target_member['mb_id'], $target_member['mb_nick']);
-                                ?>
-                            </div>
                             <div class="flex-grow-1">
-                                <div class="d-flex gap-2">
-                                    <div class="flex-fill align-self-center">
+                                <div class="d-flex flex-column flex-md-row align-items-md-center gap-1">
+                                    <div class="col-md-2 text-md-center wr-name">
+                                        <?php
+                                        // 회원 정보 구하기
+                                        $target_member = get_member($memo['target_member_id']);
+
+                                        echo get_sideview($target_member['mb_id'], $target_member['mb_nick']);
+                                        ?>
+                                    </div>
+                                    <div class="flex-fill align-self-md-center">
                                         <span data-bs-toggle="popover" data-bs-content="<?php echo nl2br(na_htmlspecialchars($memo['memo_detail'], true)) ?>" data-bs-trigger="focus hover" data-bs-html="true"><?= $memo['memo'] ?></span>
                                     </div>
                                     <div>
