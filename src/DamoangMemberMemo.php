@@ -147,7 +147,7 @@ class DamoangMemberMemo
         }
 
         $cacheKey = "{$member['mb_id']}-{$targetMemberId}";
-        if ($cache[$cacheKey]) {
+        if ($cache[$cacheKey] ?? false) {
             return $cache[$cacheKey];
         }
 
