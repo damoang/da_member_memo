@@ -1,14 +1,18 @@
 :root {
   --da-memo-bg-yellow: #ffe69c;
-  --da-memo-color-yellow: #e91e63;
-  --da-memo-bg-red: #ffcdd2;
-  --da-memo-color-red: #e91e63;
-  --da-memo-bg-purple: #c29ffa;
-  --da-memo-color-purple: #2c1a4d;
+  --da-memo-color-yellow: #664d03;
+
+  --da-memo-bg-red: #f8d7da;
+  --da-memo-color-red: #dc3545;
+
+  --da-memo-bg-purple: #e2d9f3;
+  --da-memo-color-purple: #432874;
+
   --da-memo-bg-blue: #cfe2ff;
   --da-memo-color-blue: #084298;
-  --da-memo-bg-green: #a3cfbb;
-  --da-memo-color-green: #0a3622;
+
+  --da-memo-bg-green: #d1e7dd;
+  --da-memo-color-green: #0f5132;
 }
 
 .da-member-memo__memo {
@@ -70,23 +74,26 @@
 }
 
 .da-memo-color--red {
-  color: #e91e63;
-  background-color: #ffcdd2;
+  color: var(--da-memo-color-red);
+  background-color: var(--da-memo-bg-red);
+  /* border-width: 1px;
+  border-style: solid;
+  --bs-border-color: var(--da-memo-color-red); */
 }
 
 .da-memo-color--purple {
-  color: #2c1a4d;
-  background-color: #c29ffa;
+  color: var(--da-memo-color-purple);
+  background-color: var(--da-memo-bg-purple);
 }
 
 .da-memo-color--blue {
-  color: #084298;
-  background-color: #cfe2ff;
+  color: var(--da-memo-color-blue);
+  background-color: var(--da-memo-bg-blue);
 }
 
 .da-memo-color--green {
-  color: #0a3622;
-  background-color: #a3cfbb;
+  color: var(--da-memo-color-green);
+  background-color: var(--da-memo-bg-green);
 }
 
 .danger-popover {
