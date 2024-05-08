@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
           fMemberId.value = data.target_member_id;
           modalElement.querySelector('[name=color][value=' + data.color + ']').checked = true;
           fMemo.value = data.memo;
-          fMemoDetail.textContent = data.memo_detail;
+          fMemoDetail.value = data.memo_detail;
         })
         .fail(() => {
           alert('메모 정보를 가져올 수 없음');
