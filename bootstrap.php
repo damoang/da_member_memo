@@ -164,10 +164,6 @@ add_replace('member_sideview_items', function ($sideview, $data = []) {
 /**
  * 메모 편집 등 UI 출력
  */
-add_replace('html_process_buffer', function ($html = '') {
-    $modal = file_get_contents(DA_PLUGIN_MEMO_PATH . '/templates/memo_edit.html');
-
-    $html = \DamoangMemberMemo::replaceLast('</body>', $modal . '</body>', $html);
-
-    return $html;
+add_event('tail_sub', function () {
+    echo file_get_contents(DA_PLUGIN_MEMO_PATH . '/templates/memo_edit.html');
 });
