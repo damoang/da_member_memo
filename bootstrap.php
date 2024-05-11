@@ -6,11 +6,6 @@ if (!defined('_GNUBOARD_')) {
     exit;
 }
 
-// 관리페이지에서는 동작 제한
-if (defined('G5_IS_ADMIN') && \G5_IS_ADMIN) {
-    return;
-}
-
 define('DA_PLUGIN_MEMO_VERSION', 10000);
 define('DA_PLUGIN_MEMO_PATH', __DIR__);
 define('DA_PLUGIN_MEMO_DIR', basename(DA_PLUGIN_MEMO_PATH));
@@ -61,6 +56,11 @@ add_replace('admin_dbupgrade', function ($is_check = false) {
 
 // 설치, 마이그레이션이 완료되지 았았다면 동작을 멈춤
 if (!\DamoangMemberMemo::installed()) {
+    return;
+}
+
+// 관리페이지에서는 동작 제한
+if (defined('G5_IS_ADMIN') && \G5_IS_ADMIN) {
     return;
 }
 
