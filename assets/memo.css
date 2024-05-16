@@ -15,6 +15,11 @@
   --da-memo-color-green: #0f5132;
 }
 
+.da-member-memo {
+  position: relative;
+  z-index: 1;
+}
+
 .da-member-memo__memo {
   max-width: 10em;
   font-style: normal;
