@@ -1,0 +1,7 @@
+parameters:
+	level: 6
+	phpVersion: 70333
+	paths:
+		- .
+	bootstrapFiles:
+		- phpstan-bootstrap.php
